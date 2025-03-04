@@ -1,50 +1,103 @@
-# Salary Prediction Model
+# Salary Prediction Challenge
 
 ## Overview
-This project develops a machine learning model to predict employee salaries based on job-related features. It includes data loading, preprocessing, feature engineering, model training, and evaluation, structured as a technical challenge for a Data Scientist role.
+This project implements a machine learning model to predict employee salaries based on various job-related features. The implementation includes comprehensive data preprocessing, feature engineering, model training, and evaluation components.
 
 ## Project Structure
 ```
-salary_prediction/
+salary-prediction-challenge/
 ├── data/
-│   └── salary_data.csv         # Dataset
+│   ├── raw/         # Original dataset
+│   └── processed/    # Preprocessed data
 ├── notebooks/
-│   └── salary_prediction_notebook.ipynb # Jupyter notebook for analysis and presentation
+│   └── main_notebook.ipynb  # Main analysis notebook
 ├── src/
-│   ├── data_loading.py         # Script for data loading
-│   ├── data_preprocessing.py   # Script for data cleaning and preprocessing
-│   ├── model_training.py       # Script for model training
-│   └── model_evaluation.py     # Script for model evaluation
-└── README.md                   # Project overview and setup instructions
+│   ├── data/
+│   │   ├── make_dataset.py  # Data loading utilities
+│   │   └── preprocess.py    # Data cleaning and preprocessing
+│   ├── features/
+│   │   └── build_features.py # Feature engineering
+│   ├── models/
+│   │   ├── train_model.py    # Model training
+│   │   ├── predict_model.py  # Model prediction
+│   │   └── evaluate_model.py # Model evaluation
+│   ├── tests/               # Unit tests
+│   └── visualization/       # Data visualization
+└── requirements.txt        # Project dependencies
 ```
 
+## Features
+
+### Data Preprocessing
+- Normalizes column names for consistency
+- Handles missing values and duplicates
+- Converts data types appropriately
+- Scales numerical features
+
+### Feature Engineering
+- Experience level extraction from job titles
+- Company-related features (size, ownership type)
+- Location-based features
+- Salary-related features and categories
+- Categorical variable encoding
+
+### Model Development
+- Implements data splitting with proper validation
+- Includes baseline model (DummyRegressor)
+- Uses Random Forest as the main model
+- Comprehensive model evaluation metrics
+
 ## Getting Started
-1. **Clone the repository**
-   ```bash
-   git clone [repository-url]
-   cd salary_prediction
-   ```
-2. **Explore the Jupyter Notebook**
-   - Open `notebooks/salary_prediction_notebook.ipynb` to walk through the data analysis, model development, and evaluation steps.
+
+1. **Set up the environment**
+```bash
+# Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+2. **Data Preparation**
+- Place your salary dataset in `data/raw/`
+- The dataset should include fields like job title, company information, location, and salary details
+
+3. **Run the Analysis**
+- Open and run `notebooks/main_notebook.ipynb`
+- The notebook provides a step-by-step walkthrough of the entire process
+
+## Key Components
+
+### Data Processing (`src/data/`)
+- `make_dataset.py`: Handles data loading and initial validation
+- `preprocess.py`: Implements data cleaning and preprocessing functions
+
+### Feature Engineering (`src/features/`)
+- `build_features.py`: Contains all feature engineering functions:
+  - Experience level extraction
+  - Company features processing
+  - Location features
+  - Salary categorization
+
+### Model Training and Evaluation (`src/models/`)
+- Training pipeline with cross-validation
+- Model performance evaluation
+- Prediction functionality
 
 ## Dependencies
 - pandas
-- scikit-learn
 - numpy
-- scipy
+- scikit-learn
+- jupyter
 
-## Usage
-Run the Jupyter notebook `salary_prediction_notebook.ipynb` to execute the end-to-end salary prediction workflow. The notebook is structured to be self-contained and imports necessary functions from the `src` directory.
+## Development
 
-## Model Development
-- **Data Loading**: `src/data_loading.py` handles loading the dataset from `data/salary_data.csv`.
-- **Data Preprocessing**: `src/data_preprocessing.py` includes functions for cleaning data, handling missing values, and splitting data into training and testing sets.
-- **Feature Engineering**:  `src/data_preprocessing.py` engineers relevant features from the existing dataset to improve model accuracy. 
-- **Model Training**: `src/model_training.py` trains a `RandomForestRegressor` model and a `DummyRegressor` for baseline comparison.
-- **Model Evaluation**: `src/model_evaluation.py` evaluates model performance using metrics such as RMSE and R^2, including confidence intervals for robust evaluation.
-
-## Results
-The Jupyter notebook `salary_prediction_notebook.ipynb` presents the detailed results of model evaluation, including performance metrics and comparisons between the trained models.
+To contribute to this project:
+1. Fork the repository
+2. Create a feature branch
+3. Implement your changes
+4. Submit a pull request
 
 ## License
-[Specify License, e.g., MIT License]
+This project is licensed under the MIT License - see the LICENSE file for details.
