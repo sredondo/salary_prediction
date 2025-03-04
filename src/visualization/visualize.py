@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 def plot_salary_distribution(df, salary_column='avg_salary'):
     """
@@ -48,6 +49,35 @@ def plot_salary_by_category(df, category_col, salary_col='avg_salary'):
     plt.xlabel(category_col)
     plt.ylabel('Average Salary')
     plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+    plt.show()
+
+# Correlation analysis
+def plot_correlation_heatmap(df):
+    """
+    Plots a correlation heatmap for numeric columns in the DataFrame.
+
+    Parameters:
+    df (pandas.DataFrame): DataFrame containing numeric data.
+    """
+    plt.figure(figsize=(12, 8))
+    numeric_columns = df.select_dtypes(include=[np.number]).columns
+    correlation_matrix = df[numeric_columns].corr()
+    
+    # Create a mask for the upper triangle
+    mask = np.triu(np.ones_like(correlation_matrix))
+    
+    # Plot heatmap with improved readability
+    sns.heatmap(correlation_matrix,
+                mask=mask,
+                annot=True,
+                cmap='coolwarm',
+                center=0,
+                fmt='.2f',
+                square=True,
+                linewidths=0.5)
+    
+    plt.title('Feature Correlation Matrix')
     plt.tight_layout()
     plt.show()
 
