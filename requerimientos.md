@@ -58,7 +58,7 @@ ipykernel>=6.0.0
 scipy>=1.9.0
   ```
 
-## 2. Procesamiento y Exploración de Datos
+### 2. Procesamiento y Exploración de Datos
 
 ### 2.1. Carga de Datos
 En `src/data/make_dataset.py`:
