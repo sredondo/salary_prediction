@@ -49,16 +49,16 @@ salary-prediction-challenge/
 - Dependencias mínimas requeridas:
   ```
   pandas>=1.5.0
-numpy>=1.23.0
-scikit-learn>=1.2.0
-matplotlib>=3.6.0
-seaborn>=0.12.0
-jupyter>=1.0.0
-ipykernel>=6.0.0
-scipy>=1.9.0
+  numpy>=1.23.0
+  scikit-learn>=1.2.0
+  matplotlib>=3.6.0
+  seaborn>=0.12.0
+  jupyter>=1.0.0
+  ipykernel>=6.0.0
+  scipy>=1.9.0
   ```
 
-### 2. Procesamiento y Exploración de Datos
+## 2. Procesamiento y Exploración de Datos
 
 ### 2.1. Carga de Datos
 En `src/data/make_dataset.py`:
